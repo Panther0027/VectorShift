@@ -1,0 +1,102 @@
+{
+  "nodes": [
+    {
+      "id": "node_0",
+      "type": "input",
+      "position": {
+        "x": 100,
+        "y": 200
+      },
+      "data": {
+        "value": "Sample Input Data"
+      }
+    },
+    {
+      "id": "node_1",
+      "type": "text",
+      "position": {
+        "x": 350,
+        "y": 200
+      },
+      "data": {
+        "value": "Hello [[name]], welcome to [[place]]! Your score is [[score]]."
+      }
+    },
+    {
+      "id": "node_2",
+      "type": "llm",
+      "position": {
+        "x": 600,
+        "y": 200
+      },
+      "data": {
+        "model": "gpt-4",
+        "temperature": 0.7
+      }
+    },
+    {
+      "id": "node_3",
+      "type": "transform",
+      "position": {
+        "x": 850,
+        "y": 200
+      },
+      "data": {
+        "transformation": "uppercase"
+      }
+    },
+    {
+      "id": "node_4",
+      "type": "filter",
+      "position": {
+        "x": 1100,
+        "y": 200
+      },
+      "data": {
+        "condition": "length > 10"
+      }
+    },
+    {
+      "id": "node_5",
+      "type": "output",
+      "position": {
+        "x": 1350,
+        "y": 200
+      },
+      "data": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "node_0",
+      "target": "node_1",
+      "sourceHandle": "output",
+      "targetHandle": "var-name"
+    },
+    {
+      "source": "node_1",
+      "target": "node_2",
+      "sourceHandle": "output",
+      "targetHandle": "input"
+    },
+    {
+      "source": "node_2",
+      "target": "node_3",
+      "sourceHandle": "output",
+      "targetHandle": "input"
+    },
+    {
+      "source": "node_3",
+      "target": "node_4",
+      "sourceHandle": "output",
+      "targetHandle": "input"
+    },
+    {
+      "source": "node_4",
+      "target": "node_5",
+      "sourceHandle": "output",
+      "targetHandle": "input"
+    }
+  ]
+}
+
